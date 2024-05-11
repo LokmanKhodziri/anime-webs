@@ -7,13 +7,12 @@ import Airing from './Airing'
 
 function Homepage() {
 
-    const {
-        handleSubmit,
+    const { handleSubmit,
         search,
         searchAnime,
         handleChange,
-        getAiringAnime,
         getUpcomingAnime,
+        getAiringAnime,
         getPopularAnime,
     } = useGlobalContext()
 
@@ -74,66 +73,65 @@ function Homepage() {
 
 const HomepageStyled = styled.div`
     background-color: #EDEDED;
-    header {
+    header{
         padding: 2rem 5rem;
         width: 60%;
         margin: 0 auto;
         transition: all .4s ease-in-out;
-            .logo {
+        @media screen and (max-width:1530px){
+            width: 95%;
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .search-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            button{
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                margin-bottom: 2rem;
+                gap: .5rem;
+                padding: .7rem 1.5rem;
+                outline: none;
+                border-radius: 30px;
+                font-size: 1.2rem;
+                background-color: #fff;
+                cursor: pointer;
+                transition: all .4s ease-in-out;
+                font-family: inherit;
+                border: 5px solid #e5e7eb;
             }
-            .search-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                
-                button {
-                    display: flex;
-                    align-items: center;
-                    gap: .5rem;
-                    padding: .7rem 1.5rem;
+            form{
+                position: relative;
+                width: 100%;
+                .input-control{
+                    position: relative;
+                    transition: all .4s ease-in-out;
+                }
+                .input-control input{
+                    width: 85%;
+                    padding:.7rem 1rem;
+                    border: none;
                     outline: none;
                     border-radius: 30px;
                     font-size: 1.2rem;
                     background-color: #fff;
-                    cursor: pointer;
-                    transition: all .4s ease-in-out;
-                    font-family: inherit;
                     border: 5px solid #e5e7eb;
+                    transition: all .4s ease-in-out;
                 }
-
-                form {
-                    position: relative;
-                    width: 100%;
-                        .input-control {
-                            positon: relative;
-                            transition: all .4s ease-in-out;
-                        }
-
-                        .input-control input {
-                            width: 85%;
-                            padding: .7rem 1rem;
-                            border: none;
-                            outline: none;
-                            border-radius: 30px;
-                            font-size: 1.2rem;
-                            background-colorr: #fff;
-                            border: 5px solid #e5e7eb;
-                            transition: all .4s ease-in-out;
-                        }
-
-                        .input-control button {
-                            position: absolute;
-                            right: 0;
-                            top: 50%;
-                            transform: translateY(-50%);
-                        }
+                .input-control button{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
                 }
             }
+        }
     }
 `
 

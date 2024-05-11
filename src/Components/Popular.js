@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from "../context/global.context";
 import styled from "styled-components";
+import Sidebar from "./Sidebar";
 
 function Popular({ rendered }) {
     const { popularAnime, isSearch, searchResults } = useGlobalContext()
@@ -27,6 +28,7 @@ function Popular({ rendered }) {
             <div className="popular-anime">
                 {conditionalRender()}
             </div>
+            <Sidebar />
         </PopularStyled>
     )
 }
@@ -45,14 +47,12 @@ const PopularStyled = styled.div`
         grid-gap: 2rem;
         background-color: #fff;
         border-top: 5px solid #e5e7eb;
-        
         a{
             height: 500px;
             border-radius: 7px;
             border: 5px solid #e5e7eb;
         }
-
-        a img {
+        a img{
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -61,4 +61,4 @@ const PopularStyled = styled.div`
     }
 `;
 
-export default Popular;
+export default Popular

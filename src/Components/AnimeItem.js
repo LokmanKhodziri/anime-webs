@@ -90,6 +90,36 @@ const AnimeItemStyled = styled.div`
         }
     }
 
+    .characters {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 2rem;
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 20px;
+        border: 5px solid #e5e7eb;
+
+        .character {
+            padding: .4rem .6rem;
+            border-radius: 7px;
+            background-color: #EDEDED;
+            transition: all .4s ease-in-out;
+            img {
+                width: 100%;
+            }
+            h4 {
+                padidng: .5rem 0;
+                color: #454e56;
+            }
+            p {
+                color: #27AE60;
+            }
+            &:hover {
+                transform: translateY(-5px);
+            }
+        }
+    }
+
 `;
 
 function AnimeItem(props) {
@@ -119,13 +149,12 @@ function AnimeItem(props) {
         const response = await fetch(`https://api.jikan.moe/v4/anime/${anime}/characters`)
         const data = await response.json()
         setCharacters(data.data)
-        console.log(data.data)
     }
 
     useEffect(() => {
         getAnime(id)
         getCharacters(id)
-    }, []);
+    }, [id]);
 
     return (
         <AnimeItemStyled>
