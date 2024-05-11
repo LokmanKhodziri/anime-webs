@@ -16,7 +16,7 @@ Run the following command to install the dependencies:
 
 Run the following command to start the app in development mode:
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes.
+Open terminal and [npm start) to view it in your browser. The page will reload when you make changes.
 
 ### Building the App
 
