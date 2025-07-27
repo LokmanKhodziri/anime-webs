@@ -7,38 +7,32 @@ function Upcoming({ rendered }) {
     const { upcomingAnime, isSearch, searchResults } = useGlobalContext()
 
     const conditionalRender = () => {
-        if (!isSearch && rendered === 'upcoming') {
-            return upcomingAnime?.map((anime) => {
-                return <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
-                    <img src={anime.images.jpg.large_image_url} alt="" />
-                </Link>
-            })
-        } else {
-            return searchResults?.map((anime) => {
-                return <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
-                    <img src={anime.images.jpg.large_image_url} alt="" />
-                </Link>
-            })
-        }
+        const animeList = !isSearch && rendered === 'upcoming' ? upcomingAnime : searchResults;
+
+        return animeList?.map((anime) => (
+            <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+                <img src={anime.images.jpg.large_image_url} alt={anime.title} />
+            </Link>
+        ));
     }
 
     return (
-        <PopularStyled>
+        <UpcomingStyled>
             <div className="upcoming-anime">
                 {conditionalRender()}
             </div>
-        </PopularStyled>
+        </UpcomingStyled>
     )
 }
 
-const PopularStyled = styled.div`
+const UpcomingStyled = styled.div`
     display: flex;
     .upcoming-anime{
         margin-top: 2rem;
         padding-top: 2rem;
         padding-bottom: 2rem;
         padding-left: 5rem;
-        padding-right: 0;
+        padding-right: 5rem;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
